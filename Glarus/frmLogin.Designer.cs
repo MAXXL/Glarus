@@ -33,6 +33,8 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnNewUser = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmbUser
@@ -60,6 +62,7 @@
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Вход";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnCancel
             // 
@@ -81,11 +84,31 @@
             this.btnNewUser.UseVisualStyleBackColor = true;
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(110, 85);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Пароль";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 172);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnNewUser);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
@@ -106,6 +129,8 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnNewUser;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label2;
     }
 }
 

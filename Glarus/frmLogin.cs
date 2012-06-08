@@ -14,6 +14,7 @@ namespace WindowsFormsApplication1
     {
         //static MySqlConnection myConnection;
         static MySqlCommand myCmd;
+        
         public frmLogin()
         {
             InitializeComponent();
@@ -47,11 +48,11 @@ namespace WindowsFormsApplication1
                 myCmd.Connection = myConnection;
                 Glarus.GlobalVars.myCmd = myCmd;
                 // читаем список пользователей 
-                string sSQL = "SELECT Family FROM User";
+                string sSQL = "SELECT idUser,Family,Name,SecondName FROM User";
                 myCmd.CommandText = sSQL;
                 MySqlDataReader datareader = myCmd.ExecuteReader();
                 while (datareader.Read())
-                    cmbUser.Items.Add(datareader["Family"]);
+                    cmbUser.Items.Add(datareader["Family"] + " " + datareader["Name"] + " " + datareader["SecondName"]);
                 datareader.Close();
             }
             catch (Exception ex)
@@ -70,11 +71,11 @@ namespace WindowsFormsApplication1
 
             // перечитать список пользователей
             cmbUser.Items.Clear();
-            string sSQL = "SELECT Family FROM User";
+            string sSQL = "SELECT idUser,Family,Name,SecondName FROM User";
             myCmd.CommandText = sSQL;
             MySqlDataReader datareader = myCmd.ExecuteReader();
             while (datareader.Read())
-                cmbUser.Items.Add(datareader["Family"]);
+                cmbUser.Items.Add(datareader["Family"] + " " + datareader["Name"] + " " + datareader["SecondName"]);
             datareader.Close();
 
             this.Show();
@@ -84,6 +85,45 @@ namespace WindowsFormsApplication1
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string sSQL = "SELECT idUser,Family,Name,SecondName,Password FROM User";
+            string FIO;
+            int count;
+            count =0;
+            myCmd.CommandText = sSQL;
+            MySqlDataReader datareader = myCmd.ExecuteReader();
+            while (datareader.Read())
+            {
+                FIO = datareader["Family"] + " " + datareader["Name"] + " " + datareader["SecondName"];
+                if (FIO == cmbUser.Text)
+                {
+                    if (datareader["Password"].ToString() == txtPassword.Text)
+                    {
+                        txtPassword.Text="";
+                        frmMain fr = new frmMain();
+                        this.Hide();
+                        fr.ShowDialog();
+                        this.Show();
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неправильный пароль!");
+                        break;
+                    }
+
+                }
+                count++;
+            }    
+            datareader.Close();
         }
 
      }
