@@ -8,9 +8,14 @@ using MySql.Data.MySqlClient;
 namespace Glarus
 {
 
-
+    static class GlobalVars
+    {
+        public static MySqlCommand myCmd;
+  
+    }
     class DBConnect
     {
+        
         public MySqlConnection connection;
         private string server;
         private string database;

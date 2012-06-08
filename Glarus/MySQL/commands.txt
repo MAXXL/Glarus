@@ -1,0 +1,10 @@
+CREATE SCHEMA `GLARUS_DB`
+
+CREATE  TABLE `glarus_db`.`User` (
+  `idUser` INT NOT NULL AUTO_INCREMENT,
+  `Family` VARCHAR(50) NULL ,
+  `Name` VARCHAR(25) NULL ,
+  `SecondName` VARCHAR(25) NULL ,
+  `Password` VARCHAR(25) NULL ,
+  PRIMARY KEY (`idUser`) );
+
