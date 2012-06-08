@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Glarus.Properties
+namespace WindowsFormsApplication1.Properties
 {
 
 

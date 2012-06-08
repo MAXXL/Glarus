@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Glarus")]
+[assembly: AssemblyTitle("WindowsFormsApplication1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("-")]
-[assembly: AssemblyProduct("Glarus")]
+[assembly: AssemblyProduct("WindowsFormsApplication1")]
 [assembly: AssemblyCopyright("Copyright © - 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("24b3edfe-3825-414d-9a65-589262bb3fea")]
+[assembly: Guid("919398a3-1688-48a1-bb10-7e0f195f85f0")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

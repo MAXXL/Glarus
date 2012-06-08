@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glarus", "Glarus.csproj", "{BAF4AB01-D5D0-4ABE-ABC7-3FAA3893AD91}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glarus", "Glarus.csproj", "{57878AA8-1395-464F-B178-C76337442649}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BAF4AB01-D5D0-4ABE-ABC7-3FAA3893AD91}.Debug|x86.ActiveCfg = Debug|x86
-		{BAF4AB01-D5D0-4ABE-ABC7-3FAA3893AD91}.Debug|x86.Build.0 = Debug|x86
-		{BAF4AB01-D5D0-4ABE-ABC7-3FAA3893AD91}.Release|x86.ActiveCfg = Release|x86
-		{BAF4AB01-D5D0-4ABE-ABC7-3FAA3893AD91}.Release|x86.Build.0 = Release|x86
+		{57878AA8-1395-464F-B178-C76337442649}.Debug|x86.ActiveCfg = Debug|x86
+		{57878AA8-1395-464F-B178-C76337442649}.Debug|x86.Build.0 = Debug|x86
+		{57878AA8-1395-464F-B178-C76337442649}.Release|x86.ActiveCfg = Release|x86
+		{57878AA8-1395-464F-B178-C76337442649}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
