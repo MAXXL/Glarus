@@ -34,8 +34,8 @@ namespace WindowsFormsApplication1
 
                 server = "localhost";
                 database = "GLARUS_DB";
-                uid = "root";
-                password = "RjvgfybzRBN25";
+                uid = "glarus";
+                password = "glarus";
                 string connectionString;
                 connectionString = "SERVER=" + server + ";" + "DATABASE=" +
                 database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
