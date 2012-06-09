@@ -20,5 +20,11 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            frmPacient fr = new frmPacient();
+            fr.Show();
+        }
     }
 }

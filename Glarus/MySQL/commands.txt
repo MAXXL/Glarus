@@ -8,3 +8,10 @@ CREATE  TABLE `glarus_db`.`User` (
   `Password` VARCHAR(25) NULL ,
   PRIMARY KEY (`idUser`) );
 
+CREATE  TABLE `glarus_db`.`pacient` (
+  `idPacient` INT NOT NULL AUTO_INCREMENT ,
+  `Family` VARCHAR(50) NULL ,
+  `Name` VARCHAR(25) NULL ,
+  `SecondName` VARCHAR(25) NULL ,
+  `Birthday` DATE NULL ,
+  PRIMARY KEY (`idPacient`) );
