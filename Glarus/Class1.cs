@@ -11,7 +11,9 @@ namespace Glarus
     static class GlobalVars
     {
         public static MySqlCommand myCmd;
-  
+        public static string ConnectionString = "SERVER=localhost;DATABASE=GLARUS_DB;UID=glarus;PASSWORD=glarus;";
+        public static string BufferString = String.Empty;
+ 
     }
     class DBConnect
     {

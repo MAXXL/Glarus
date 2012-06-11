@@ -37,11 +37,12 @@
             this.txtSecondName = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtFamily = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.BirthdayDate = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(259, 178);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 23);
@@ -51,12 +52,14 @@
             // 
             // btnAddUser
             // 
+            this.btnAddUser.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAddUser.Location = new System.Drawing.Point(120, 178);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(100, 23);
             this.btnAddUser.TabIndex = 18;
             this.btnAddUser.Text = "Создать";
             this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // label4
             // 
@@ -118,21 +121,23 @@
             this.txtFamily.Size = new System.Drawing.Size(352, 20);
             this.txtFamily.TabIndex = 10;
             // 
-            // dateTimePicker1
+            // BirthdayDate
             // 
-            this.dateTimePicker1.CustomFormat = "";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(120, 133);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
-            this.dateTimePicker1.TabIndex = 20;
+            this.BirthdayDate.CustomFormat = "";
+            this.BirthdayDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.BirthdayDate.Location = new System.Drawing.Point(120, 133);
+            this.BirthdayDate.MaxDate = new System.DateTime(2200, 12, 31, 0, 0, 0, 0);
+            this.BirthdayDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.BirthdayDate.Name = "BirthdayDate";
+            this.BirthdayDate.Size = new System.Drawing.Size(100, 20);
+            this.BirthdayDate.TabIndex = 20;
             // 
             // frmPacient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(517, 220);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.BirthdayDate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.label4);
@@ -160,6 +165,6 @@
         private System.Windows.Forms.TextBox txtSecondName;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtFamily;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker BirthdayDate;
     }
 }

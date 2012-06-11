@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1
 {
     public partial class frmAddUser : Form
     {
+        static MySqlCommand myCmd;
         public frmAddUser()
         {
             InitializeComponent();
@@ -41,9 +42,11 @@ namespace WindowsFormsApplication1
             }
             try
             {
-                MySqlCommand myCmd;
-                //myCmd = new MySqlCommand();
-                myCmd = Glarus.GlobalVars.myCmd;
+                MySqlConnection myConnection = new MySqlConnection(Glarus.GlobalVars.ConnectionString);
+                myConnection.Open();
+                
+                myCmd = new MySqlCommand();
+                myCmd.Connection = myConnection;
                 string sSQL = "INSERT INTO User (Family,Name,SecondName,Password) VALUES                               (";
                 sSQL += "'" + txtFamily.Text + "',";
                 sSQL += "'" + txtName.Text + "',";
@@ -53,7 +56,7 @@ namespace WindowsFormsApplication1
                 myCmd.CommandText = sSQL;
                 myCmd.Prepare();
                 myCmd.ExecuteNonQuery();
-
+                myConnection.Close();
                 this.Close();
             }
             catch (Exception ex)
