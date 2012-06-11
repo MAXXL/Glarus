@@ -12,7 +12,8 @@ namespace WindowsFormsApplication1
 {
     public partial class frmMain : Form
     {
-        //public int frmPacientStatus;
+        //static MySqlCommand myCmd;
+        private BindingSource bindingSorce = new BindingSource();
         public frmMain()
         {
             InitializeComponent();
@@ -25,23 +26,47 @@ namespace WindowsFormsApplication1
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            frmPacient fr = new frmPacient();
-            //fr.iIdRecord = Convert.ToInt32(txtPacient.Text);
-            fr.iIdRecord = 5;
-            fr.ShowDialog();
+            //frmPacient.iIdRecord = Convert.ToInt32(txtPacient.Text);
+            //frmPacient fr = new frmPacient();
+            //fr.ShowDialog();
+            //MySqlConnection myConnection = new MySqlConnection(Glarus.GlobalVars.ConnectionString);
+            //myConnection.Open();
+            //MySqlDataAdapter myAdapter = new MySqlDataAdapter();
+            //DataSet myDataSet = new DataSet();
+            //myCmd = new MySqlCommand();
+            //myCmd.Connection = myConnection;
+            //string sSQL;
+            //sSQL = "SELECT idPacient,Family,Name,SecondName,Birthday FROM pacient WHERE idPacient=" ;
+            //myCmd.CommandText = sSQL;
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //Glarus.GlobalVars.BufferString = "1"; //add new pacient
+            frmPacient.iIdRecord = 0;
             frmPacient fr = new frmPacient();
-            fr.iIdRecord = 0;
             //fr.Owner = this;
             if (fr.ShowDialog() == DialogResult.OK)
             {
                 //создан новый пациент
             }
             
+        }
+
+        private void txtPacient_TextChanged(object sender, EventArgs e)
+        {
+            MySqlConnection myConnection = new MySqlConnection(Glarus.GlobalVars.ConnectionString);
+            MySqlCommand myCmd = new MySqlCommand();
+            myCmd.Connection = myConnection;
+            myCmd.CommandText = "SELECT * FROM pacient";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(myCmd);
+            DataSet dataset = new DataSet();
+            adapter.Fill(dataset);
+            bindingSorce.DataSource = dataset.Tables[0];
+            dataGridView1.DataSource = bindingSorce;
+            myConnection.Close();
+
         }
     }
 }

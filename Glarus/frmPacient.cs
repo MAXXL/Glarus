@@ -12,15 +12,15 @@ namespace WindowsFormsApplication1
 {
     public partial class frmPacient : Form
     {
-        public Int32 iIdRecord { get; set; }
-        static MySqlCommand myCmd;
+         public static Int32 iIdRecord { get; set; }
+       static MySqlCommand myCmd;
         //public int frmPacientStatus;
         public frmPacient()
         {
             InitializeComponent();
             //frmMain fr = (frmMain)this.Owner;
             //frmPacientStatus = fr.frmPacientStatus;
-            iIdRecord = 5;
+            
             if (iIdRecord == 0)
             {
                 // add new pacient
@@ -93,11 +93,12 @@ namespace WindowsFormsApplication1
                 else
                 {
                     StringBuilder strSQL = new StringBuilder("UPDATE pacient SET ");
+                    //strSQL.Append("idPacient='").Append(iIdRecord.ToString()).Append("',");
                     strSQL.Append("Family='").Append(txtFamily.Text).Append("',");
                     strSQL.Append("Name='").Append(txtName.Text).Append("',");
                     strSQL.Append("SecondName='").Append(txtSecondName.Text).Append("',");
-                    strSQL.Append("Birthday='").Append(BirthdayDate.Value.ToString("yyyy'-'MM'-'dd")).Append("',");
-                    strSQL.Append(" WHERE idPacient=").Append(iIdRecord.ToString());
+                    strSQL.Append("Birthday='").Append(BirthdayDate.Value.ToString("yyyy'-'MM'-'dd")).Append("'");
+                    strSQL.Append(" WHERE idPacient='").Append(iIdRecord.ToString()).Append("'");
                     sSQL = strSQL.ToString();
                }
                 myCmd.CommandText = sSQL;
