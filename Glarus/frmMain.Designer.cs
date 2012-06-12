@@ -57,19 +57,19 @@
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(546, 32);
+            this.btnFind.Location = new System.Drawing.Point(546, 73);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(86, 21);
+            this.btnFind.Size = new System.Drawing.Size(96, 21);
             this.btnFind.TabIndex = 2;
-            this.btnFind.Text = "Найти";
+            this.btnFind.Text = "Редактировать";
             this.btnFind.UseVisualStyleBackColor = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(546, 59);
+            this.btnAdd.Location = new System.Drawing.Point(546, 108);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(86, 21);
+            this.btnAdd.Size = new System.Drawing.Size(96, 21);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Создать";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -77,17 +77,23 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(75, 73);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(465, 170);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting_1);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 266);
+            this.ClientSize = new System.Drawing.Size(654, 266);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnFind);
