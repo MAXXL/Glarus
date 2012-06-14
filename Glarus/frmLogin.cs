@@ -103,7 +103,7 @@ namespace WindowsFormsApplication1
                     if (datareader["Password"].ToString() == txtPassword.Text)
                     {
                         txtPassword.Text="";
-                        frmMain fr = new frmMain();
+                        frmSelectPacient fr = new frmSelectPacient();
                         this.Hide();
                         fr.ShowDialog();
                         this.Show();

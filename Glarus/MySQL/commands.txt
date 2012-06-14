@@ -15,3 +15,112 @@ CREATE  TABLE `glarus_db`.`pacient` (
   `SecondName` VARCHAR(25) NULL ,
   `Birthday` DATE NULL ,
   PRIMARY KEY (`idPacient`) );
+
+CREATE  TABLE `glarus_db`.`visit_type` (
+  `idvisit_type` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NULL ,
+  PRIMARY KEY (`idvisit_type`) );
+
+CREATE  TABLE `glarus_db`.`visit` (
+  `idvisit` INT NOT NULL AUTO_INCREMENT ,
+  `visit_type` INT NULL ,
+  `visit_date` DATE NULL ,
+  `user` INT NULL ,
+  `complaint` TEXT NULL ,
+  `alergy` TINYINT NULL ,
+  `alergy_desc` TEXT NULL ,
+  `tuberkulez` TINYINT NULL ,
+  `venery` TINYINT NULL ,
+  `operations` TINYINT NULL ,
+  `operations_desc` TEXT NULL ,
+  `ambulation` TINYINT NULL ,
+  `ambulation_desc` TEXT NULL ,
+  `diabet` TINYINT NULL ,
+  `diabet_desc` TEXT NULL ,
+  `other_desc` TEXT NULL ,
+  `skin_norm` TINYINT NULL ,
+  `skin_desc` TEXT NULL ,
+  `skin_color` TINYINT NULL ,
+  `skin_color_desc` TEXT NULL ,
+  `humm` TINYINT NULL ,
+  `humm_desc` TEXT NULL ,
+  `oteki` TINYINT NULL ,
+  `limfa` TINYINT NULL ,
+  `limfa_desc` TEXT NULL ,
+  `legkie` TINYINT NULL ,
+  `legkie_hrip` TINYINT NULL ,
+  `ad` FLOAT NULL ,
+  `pulse` INT NULL ,
+  `zhivot` TINYINT NULL ,
+  `palpaz` TINYINT NULL ,
+  `liver_cond` TINYINT NULL ,
+  `liver_na` FLOAT NULL ,
+  `liver_do` FLOAT NULL ,
+  `spleen_cond` TINYINT NULL ,
+  `potschki` TINYINT NULL ,
+  `motscha` TINYINT NULL ,
+  `stul` TINYINT NULL ,
+  `ak_complant` TEXT NULL ,
+  `last_menstruation` DATE NULL ,
+  `menopausa` TINYINT NULL ,
+  `pregnant` INT NULL ,
+  `childbirth` INT NULL ,
+  `abort` INT NULL ,
+  `ginekology_disease` TEXT NULL ,
+  `sex_organ` TINYINT NULL ,
+  `vulva` TINYINT NULL ,
+  `vulva_prisn` TINYINT NULL ,
+  `vulva_desc` TEXT NULL ,
+  `vagina` TINYINT NULL ,
+  `sliz` TINYINT NULL ,
+  `matka` TINYINT NULL ,
+  `matka_viz` TINYINT NULL ,
+  `matka_prizn` TEXT NULL ,
+  `mazki_cerv` TINYINT NULL ,
+  `mazki_matka` TINYINT NULL ,
+  `mazki_vagina` TINYINT NULL ,
+  `matka_status` TINYINT NULL ,
+  `matka_inc` INT NULL ,
+  `matka_ff` FLOAT NULL ,
+  `matka_rew` FLOAT NULL ,
+  `matka_cons` TINYINT NULL ,
+  `matka_form` TINYINT NULL ,
+  `matka_palp` TINYINT NULL ,
+  `pridatki_left` TEXT NULL ,
+  `pridatki_right` TEXT NULL ,
+  `vydelenia` INT NULL ,
+  `infiltraty` TEXT NULL ,
+  `conclusion` TEXT NULL ,
+  `diagnos` TEXT NULL ,
+  `rekomend` TEXT NULL ,
+  PRIMARY KEY (`idvisit`) );
+
+CREATE  TABLE `glarus_db`.`analiz_type` (
+  `idanaliz_type` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(50) NULL ,
+  PRIMARY KEY (`idanaliz_type`) );
+
+CREATE  TABLE `glarus_db`.`analiz` (
+  `idanaliz` INT NOT NULL AUTO_INCREMENT ,
+  `user` INT NULL ,
+  `pacient` INT NULL ,
+  `visit` INT NULL ,
+  `analiz_type` INT NULL ,
+  `analiz_date` DATE NULL ,
+  `result` TEXT NULL ,
+  `comment` TEXT NULL ,
+  PRIMARY KEY (`idanaliz`) );
+
+INSERT INTO `glarus_db`.`visit_type` (`name`) VALUES ('Первичный осмотр');
+INSERT INTO `glarus_db`.`visit_type` (`name`) VALUES ('Консультация');
+INSERT INTO `glarus_db`.`visit_type` (`name`) VALUES ('Обследование');
+
+INSERT INTO `glarus_db`.`analiz_type` (`name`) VALUES ('Биохимия крови');
+INSERT INTO `glarus_db`.`analiz_type` (`name`) VALUES ('Имунные пробы');
+INSERT INTO `glarus_db`.`analiz_type` (`name`) VALUES ('Мазок гинекологический');
+INSERT INTO `glarus_db`.`analiz_type` (`name`) VALUES ('Общий анализ крови');
+INSERT INTO `glarus_db`.`analiz_type` (`name`) VALUES ('Общий анализ мочи');
+INSERT INTO `glarus_db`.`analiz_type` (`name`) VALUES ('Онкомаркеры');
+INSERT INTO `glarus_db`.`analiz_type` (`name`) VALUES ('ПЦР');
+
+

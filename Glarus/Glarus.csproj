@@ -52,17 +52,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="frmSelectObj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectObj.Designer.cs">
+      <DependentUpon>frmSelectObj.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPacient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPacient.Designer.cs">
       <DependentUpon>frmPacient.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="frmSelectPacient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="frmSelectPacient.Designer.cs">
+      <DependentUpon>frmSelectPacient.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddUser.cs">
       <SubType>Form</SubType>
@@ -87,8 +93,11 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="frmSelectObj.resx">
+      <DependentUpon>frmSelectObj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectPacient.resx">
+      <DependentUpon>frmSelectPacient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -10,11 +10,11 @@ using MySql.Data.MySqlClient;
 
 namespace WindowsFormsApplication1
 {
-    public partial class frmMain : Form
+    public partial class frmSelectPacient : Form
     {
         //static MySqlCommand myCmd;
         private BindingSource bindingSorce = new BindingSource();
-        public frmMain()
+        public frmSelectPacient()
         {
             InitializeComponent();
         }
@@ -52,7 +52,7 @@ namespace WindowsFormsApplication1
         //}
         private void btnFind_Click(object sender, EventArgs e)
         {
-            frmPacient.iIdRecord = Convert.ToInt32(dataGridView1.SelectedCells[0].Value);
+            frmPacient.iIdRecord = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
             frmPacient fr = new frmPacient();
             //fr.Owner = this;
             if (fr.ShowDialog() == DialogResult.OK)
@@ -165,6 +165,18 @@ namespace WindowsFormsApplication1
 
                 e.Graphics.DrawString((e.RowIndex + 1).ToString(), dataGridView1.RowHeadersDefaultCellStyle.Font,
                 new SolidBrush(dataGridView1.RowHeadersDefaultCellStyle.ForeColor), rc, sf);
+            }
+
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmSelectObj.iIdRecord = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            frmSelectObj fr = new frmSelectObj();
+            //fr.Owner = this;
+            if (fr.ShowDialog() == DialogResult.OK)
+            {
+                //
             }
 
         }
