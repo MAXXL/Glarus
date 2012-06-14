@@ -78,9 +78,9 @@
             // 
             // btnNewUser
             // 
-            this.btnNewUser.Location = new System.Drawing.Point(278, 127);
+            this.btnNewUser.Location = new System.Drawing.Point(110, 126);
             this.btnNewUser.Name = "btnNewUser";
-            this.btnNewUser.Size = new System.Drawing.Size(137, 23);
+            this.btnNewUser.Size = new System.Drawing.Size(184, 23);
             this.btnNewUser.TabIndex = 4;
             this.btnNewUser.Text = "Создать пользователя";
             this.btnNewUser.UseVisualStyleBackColor = true;
