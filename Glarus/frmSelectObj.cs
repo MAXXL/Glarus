@@ -42,8 +42,12 @@ namespace WindowsFormsApplication1
                     lblPacient.Text = lblPacient.Text + ", " + Convert.ToDateTime(datareader["Birthday"]).ToString("dd'/'MM'/'yyyy") + " г.р.";
                 }
                 datareader.Close();
-                //myConnection.Close();
+                myConnection.Close();
                 // выводим данные по визитам
+                myConnection.Open();
+                myCmd = new MySqlCommand();
+                myCmd.Connection = myConnection;
+                
                 //sSQL = "SELECT idvisit,user,pacient,visit_type,visit_date FROM visit WHERE pacient=" + iIdRecord.ToString();
                 //myCmd.CommandText = sSQL;
                 //MySqlDataReader datareader = myCmd.ExecuteReader();
@@ -58,7 +62,10 @@ namespace WindowsFormsApplication1
                 //MySqlConnection myConnection = new MySqlConnection(Glarus.GlobalVars.ConnectionString);
                 //MySqlCommand myCmd = new MySqlCommand();
                 //myCmd.Connection = myConnection;
-                StringBuilder strSQL = new StringBuilder("SELECT idvisit,visit_date,visit_type,user,pacient FROM visit WHERE pacient=" + iIdRecord.ToString());
+                StringBuilder strSQL = new StringBuilder("SELECT visit.idvisit,visit.id_record,analiz.idanaliz,analiz.analiz_date,visit.visit_type,visit.user,visit.pacient,visit_type.idvisit_type,visit_type.name,user.idUser,user.Family,user.Name,user.SecondName FROM visit,visit_type,user,analiz WHERE (pacient=" + iIdRecord.ToString() + " AND (visit.visit_type=visit_type.idvisit_type) AND (visit.user=user.idUser) AND (visit.idvisit=analiz.visit))");
+                //StringBuilder strSQL = new StringBuilder("SELECT visit.idvisit,visit.id_record,analiz.idanaliz,analiz.analiz_date,visit.visit_type,visit.user,visit.pacient,visit_type.idvisit_type,visit_type.name,user.idUser,user.Family,user.Name,user.SecondName FROM visit,visit_type,user,analiz WHERE (pacient=" + iIdRecord.ToString() + " AND (visit.visit_type=visit_type.idvisit_type) AND (visit.user=user.idUser) AND (visit.id_record=analiz.idanaliz))");
+                //strSQL.Append("pacient.id,pacient.famile,pacient.Name,pacient.SecondName").Append(txtFamily.Text).Append("',");
+                //strSQL.Append("Family='").Append(txtFamily.Text).Append("',");
                 myCmd.CommandText = strSQL.ToString();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(myCmd);
                 DataSet dataset = new DataSet();
@@ -67,7 +74,7 @@ namespace WindowsFormsApplication1
                 dataGridView1.DataSource = bindingSorce;
                 myConnection.Close();
 
-                myConnection.Close();
+                
 
             }
 
@@ -81,11 +88,19 @@ namespace WindowsFormsApplication1
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].HeaderCell.Value = "Дата";
-            dataGridView1.Columns[2].HeaderCell.Value = "Вид";
-            dataGridView1.Columns[3].HeaderCell.Value = "Врач";
+            dataGridView1.Columns[1].Visible = false;
+            dataGridView1.Columns[2].Visible = false;
+            dataGridView1.Columns[3].HeaderCell.Value = "Дата";
             dataGridView1.Columns[4].Visible = false;
-            StringFormat sf = new StringFormat();
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
+            dataGridView1.Columns[7].Visible = false;
+            dataGridView1.Columns[8].HeaderCell.Value = "Вид";
+            dataGridView1.Columns[9].Visible = false;
+            dataGridView1.Columns[10].HeaderCell.Value = "Врач";
+            dataGridView1.Columns[11].Visible = false;
+            dataGridView1.Columns[12].Visible = false; 
+             StringFormat sf = new StringFormat();
             sf.Alignment = StringAlignment.Far; // по горизонтали (к правому краю)
             sf.LineAlignment = StringAlignment.Center; // по вертикали (по центру)
 
@@ -106,5 +121,21 @@ namespace WindowsFormsApplication1
             }
 
         }
-    }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Convert.ToInt32(dataGridView1.CurrentRow.Cells[2].Value)!=0)
+            {
+            frmAnalizy.iIdRecord = Convert.ToInt32(dataGridView1.CurrentRow.Cells[2].Value);
+            frmAnalizy fr = new frmAnalizy();
+            //fr.Owner = this;
+            if (fr.ShowDialog() == DialogResult.OK)
+            {
+                //
+            }
+            }
+
+        }
+
+     }
 }

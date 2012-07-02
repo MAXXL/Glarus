@@ -102,6 +102,7 @@ namespace WindowsFormsApplication1
                 {
                     if (datareader["Password"].ToString() == txtPassword.Text)
                     {
+                        Glarus.GlobalVars.iCurrentUser = Convert.ToInt16(datareader["idUser"]);
                         txtPassword.Text="";
                         frmSelectPacient fr = new frmSelectPacient();
                         this.Hide();

@@ -13,7 +13,7 @@ namespace Glarus
         //public static MySqlCommand myCmd;
         public static string ConnectionString = "SERVER=localhost;DATABASE=GLARUS_DB;UID=glarus;PASSWORD=glarus;";
         public static string BufferString = String.Empty;
- 
+        public static int iCurrentUser;
     }
     class DBConnect
     {

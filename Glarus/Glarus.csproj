@@ -52,6 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="frmAnalizy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnalizy.Designer.cs">
+      <DependentUpon>frmAnalizy.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSelectObj.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAnalizy.resx">
+      <DependentUpon>frmAnalizy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPacient.resx">
       <DependentUpon>frmPacient.cs</DependentUpon>
     </EmbeddedResource>
